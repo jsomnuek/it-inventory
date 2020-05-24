@@ -14,8 +14,12 @@ class PhonesController extends Controller
      */
     public function index()
     {
-        $phones = Phone::all();
-        return view('phones.index');
+        // $phones = Phone::all();
+        // $phones = Phone::orderBy('id', 'desc')->get();
+        // return $phones = Phone::orderBy('id', 'desc')->paginate(1);
+        
+        $phones = Phone::orderBy('id', 'desc')->paginate(1);
+        return view('phones.index')->with('phones', $phones);
     }
 
     /**
